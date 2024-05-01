@@ -2,17 +2,23 @@
 <html lang="en">
  <head>
         {% if title %}
-        <title>{{ title }} - microblog</title>
+        <title>{{ title }} - SPS eSports</title>
         {% else %}
-        <title>microblog</title>
+        <title>eSports</title>
         {% endif %}
     </head>
     <body>
         <div>
-            Microblog:
+            SPS eSports:
             <a href="{{ url_for('index') }}">Home</a>
+            {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
 
+            {% else %}
+            <a href="{{ url_for('game_search') }}">Search Games</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}

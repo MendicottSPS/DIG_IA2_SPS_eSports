@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{{url_for('game_search')}}" method="post">
+    {{form.hidden_tag()}}
+
+    <input type="text" id="game_title" name="game_title" placeholder="Search for a game...">
+    <input type="submit" value="Search">
+
+</form>
+
+
+
+
+{% endblock %}
+
+
+

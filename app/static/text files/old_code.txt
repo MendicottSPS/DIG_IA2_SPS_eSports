@@ -1,0 +1,14 @@
+@app.route('/database', methods=['GET', 'POST'])
+def database():
+    with open('vgsales.csv', 'r') as csvfile:
+        tbl_reader = csv.reader(csvfile, delimiter=',')
+        next(csvfile)
+        id = 1
+        for row in tbl_reader:
+            game = Games(game_id=id, game_title=row[1], game_platform=row[2], game_year=row[3],
+                         game_genre=row[4], game_publisher=row[5], game_sales_global=row[10],
+                         game_sales_ranking=row[0])
+            db.session.add(game)
+            db.session.commit()
+            id += 1
+    return redirect(url_for('index'))
