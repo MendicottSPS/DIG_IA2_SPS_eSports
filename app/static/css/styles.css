@@ -1,0 +1,139 @@
+
+
+/* fonts */
+@font-face{
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Starjedi';
+    src: url('../fonts/Starjedi.ttf') format('truetype');
+}
+
+body {
+    background-color: #2b0a3d; /* Really dark purple background */
+    color: #f8f9fa; /* White text */
+    font-family: 'Roboto', serif;
+    text-align: center;
+}
+
+
+/* Header styling */
+.header {
+    background-color: #2b0a3d; /* Dark purple background */
+    padding: 10px;
+    font-size: 18px; /* Large font size */
+    font-family: 'Roboto';
+    text-align: justify;
+}
+
+/* Logo text */
+.header .logo {
+    margin: 0;
+    color: #fff; /* White text color */
+    font-size: 28px; /* Large font size */
+    font-family: 'Starjedi';
+
+}
+
+.header .logo:hover {
+    text-shadow: 2px 2px 10px #b48fcd;
+    filter: dropshadow(color=#cc8df6, offx=2, offy=2);
+}
+
+/* Container for content */
+.container {
+    /* background-color: rgba(255, 255, 255, 0);*/
+    background-color: #4d2968; /* Dark purple background */
+    border: 2px solid #fff;
+    border-radius: 10px; /* Rounded edges */
+    padding: 20px; /* Padding inside the container */
+    box-sizing: border-box; /* Include padding and border in total width */
+    ;
+}
+
+.centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Navigation links styling */
+.header a {
+    color: #fff; /* White links */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 18px; /* Padding for links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+/* Change background color of links on hover */
+.header a:hover {
+    background-color: #4d1a5e; /* Lighter purple on hover */
+    font-weight: bold; /* Bold text on hover */
+}
+
+/* Form styling */
+form {
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border-radius: 10px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in total width */
+    font-size: 25px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #612177; /* Dark purple background */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #fff; /* Lighter purple background on hover */
+    color: #612177; /* Dark purple text on hover */
+}
+
+/* Table styling */
+table {
+    margin: 0 auto; /* Center table horizontally */
+    border-collapse: collapse; /* Ensure borders don't double up */
+    width: 80%; /* Adjust as needed for table width */
+}
+
+table, th, td {
+    border: 2px solid white;
+    text-align: center;
+    padding: 10px; /* Add padding for better readability */
+}
+
+th {
+    background-color: #4d1a5e; /* Background color for table headers */
+    color: white; /* Text color for table headers */
+}
+
+td {
+    background-color: #2b0a3d; /* Background color for table data cells */
+    color: white; /* Text color for table data cells */
+}

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<script src="https://kit.fontawesome.com/b1440f3d3c.js" crossorigin="anonymous"></script>
+
  <head>
         {% if title %}
         <title>{{ title }} - SPS eSports</title>
@@ -8,16 +11,19 @@
         {% endif %}
     </head>
     <body>
-        <div>
-            SPS eSports:
-            <a href="{{ url_for('index') }}">Home</a>
+        <div class="header">
+            <span class="logo">SPS eSports:</span>
             {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('login') }}">Sign In </a>
             <a href="{{ url_for('register') }}">Register</a>
-
             {% else %}
-            <a href="{{ url_for('game_search') }}">Search Games</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
+            <a href="{{ url_for('index') }}">Home <i class="fa-solid fa-house"></i></a>
+            <a href="{{ url_for('game_search') }}">Search Games <i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="{{ url_for('user_search') }}">Search Users <i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile <i class="fa-solid fa-user"></i></a>
+            <a href="{{ url_for('create_team') }}">Create Team</a>
+            <a href="{{ url_for('team_search') }}">Search Teams</a>
+            <a href="{{ url_for('logout') }}">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
             {% endif %}
         </div>
         <hr>

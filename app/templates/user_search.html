@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Search</h1>
+    <p>Search for a user here:</p>
+    <form action="{{url_for('user_search')}}" method="post">
+        {{form.hidden_tag()}}
+
+        <input type="text" id="username" name="username" placeholder="Search for a user...">
+        <input type="submit" value="Search">
+
+    </form>
+
+{% endblock %}

@@ -9,6 +9,10 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    about_me = db.Column(db.String(140))
+    role = db.Column(db.String(64), index=True)
+    skill_level = db.Column(db.String(64), index=True)
+    grade = db.Column(db.Integer, index=True)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -18,6 +22,7 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
 
 class Games(db.Model):
     game_id = db.Column(db.Integer, primary_key=True)
@@ -36,7 +41,18 @@ class Games(db.Model):
         return str(self.game_id)
 
 
+class Team(db.Model):
+    team_id = db.Column(db.Integer, primary_key=True)
+    team_name = db.Column(db.String(64), index=True, nullable=False)
+    team_description = db.Column(db.String(140), index=True)
+
+    def __repr__(self):
+        return '<Team {}>'.format(self.team_name)
+
+    def get_id(self):
+        return str(self.team_id)
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+

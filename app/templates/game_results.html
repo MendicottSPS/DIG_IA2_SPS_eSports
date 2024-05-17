@@ -4,7 +4,25 @@
     <p>Here are the results for your search:</p>
 
         {% for game in games %}
-            <p>{{game.game_title}}</p>
+            <!---<p>{{game.game_title}}</p> --->
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Platform</th>
+        <th>Year Published</th>
+        <th>Game Publisher</th>
+    </tr>
+    {% for game in games %}
+    <tr>
+        <td>{{ game.game_title }}</td>
+        <td>{{ game.game_genre }}</td>
+        <td>{{ game.game_platform }}</td>
+        <td>{{ game.game_year }}</td>
+        <td>{{ game.game_publisher }}</td>
+    </tr>
+    {% endfor %}
+</table>
         {% endfor %}
 
 {% endblock %}

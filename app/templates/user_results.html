@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>User Results</h1>
+    <p>Here are the results for your search:</p>
+
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Skill Level</th>
+        <th>Grade</th>
+    </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.skill_level }}</td>
+            <td>{{ user.grade }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

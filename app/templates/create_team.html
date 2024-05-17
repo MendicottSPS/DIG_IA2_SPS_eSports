@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="centre">
+    <h1>Create Team</h1>
+
+</div>
+
+<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.team_name.label }}<br>
+            {{ form.team_name(size=32) }}<br>
+            {% for error in form.team_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.team_description.label }}<br>
+            {{ form.team_description(cols=50, rows=4) }}<br>
+            {% for error in form.team_description.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

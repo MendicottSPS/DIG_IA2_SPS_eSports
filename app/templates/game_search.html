@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>Game Search</h1>
+<p>Search for a game here:</p>
 <form action="{{url_for('game_search')}}" method="post">
     {{form.hidden_tag()}}
 

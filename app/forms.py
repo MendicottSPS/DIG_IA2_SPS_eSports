@@ -16,6 +16,8 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    grade = StringField('Grade', validators=[DataRequired()])
+    skill_level = StringField('Skill Level', validators=[DataRequired()])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -32,3 +34,24 @@ class RegistrationForm(FlaskForm):
 class GameSearchForm(FlaskForm):
     game_title = StringField('Game Title', validators=[DataRequired()])
     submit = SubmitField('Search')
+
+
+class UserSearchForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    submit = SubmitField('Search')
+
+class EditProfileForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    about_me = StringField('About me', validators=[DataRequired()])
+    skill_level = StringField('Skill Level', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class CreateTeamForm(FlaskForm):
+    team_name = StringField('Team Name', validators=[DataRequired()])
+    team_description = StringField('Team Description', validators=[DataRequired()])
+    submit = SubmitField('Create Team')
+
+class SearchTeamForm(FlaskForm):
+    team_name = StringField('Team Name', validators=[DataRequired()])
+    submit = SubmitField('Search Team')
+

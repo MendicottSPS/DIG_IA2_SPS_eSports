@@ -30,6 +30,25 @@
     <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
 
+    <label for="grade">Year Level Grade</label>
+    <input list = "grades" name="grade" id="grade" required>
+    <datalist id="grades">
+        <option value="7">
+        <option value="8">
+        <option value="9">
+        <option value="10">
+        <option value="11">
+        <option value="12">
+    </datalist>
+
+    <label for="skill_level">Skill Level</label>
+    <input list = "skill_levels" name="skill_level" id="skill_level" required>
+    <datalist id="skill_levels">
+        <option value="Beginner">
+        <option value="Intermediate">
+        <option value="Advanced">
+    </datalist>
+
     <input type="submit" value="Register">
 </form>
 
