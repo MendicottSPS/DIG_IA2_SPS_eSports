@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login
 
-
+#creating the user class - i.e the user table in the database and associated columns
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -16,14 +16,17 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
-
+#creating a password hash for secuity purposes
+#this was where the first errors occured with the actual method of hashing the password
+#the final method to be used was pbkdf2:sha256 - rather than the default sha256
     def set_password(self, password):
         self.password_hash = generate_password_hash(password, method='pbkdf2:sha256')
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-
+#creating the game class - i.e the game table in the database and associated columns
+#the data from this table was accessed from the provided data, csv file and then added to the database for use through SQL queries
 class Games(db.Model):
     game_id = db.Column(db.Integer, primary_key=True)
     game_title = db.Column(db.String(64), index=True, nullable=False)

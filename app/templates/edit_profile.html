@@ -12,11 +12,16 @@
         </p>
 
         <p>
-            {{ form.skill_level.label }}<br>
-            {{ form.skill_level(size=32) }}<br>
-            {% for error in form.skill_level.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+
+            <label for="skill_level">Skill Level</label>
+    <input list = "skill_levels" name="skill_level" id="skill_level" required>
+    <datalist id="skill_levels">
+        <option value="Beginner">
+        <option value="Intermediate">
+        <option value="Advanced">
+    </datalist>
+
+        </p>
         <p>
             {{ form.about_me.label }}<br>
             {{ form.about_me(cols=50, rows=4) }}<br>

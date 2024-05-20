@@ -2,9 +2,16 @@
 {% block content %}
     <h1>Team Search Results</h1>
     <p>Here are the results for your search:</p>
-    <ul>
+    <table>
+        <tr>
+            <th>Team Name</th>
+            <th>Description</th>
+        </tr>
         {% for team in teams %}
-            <li>{{ team.team_name }}</li>
+        <tr>
+            <td>{{ team.team_name }}</td>
+            <td>{{ team.team_description }}</td>
         {% endfor %}
-    </ul>
+    </table>
+
 {% endblock %}
