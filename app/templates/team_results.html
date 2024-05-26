@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container">
     <h1>Team Search Results</h1>
     <p>Here are the results for your search:</p>
     <table>
@@ -13,5 +14,6 @@
             <td>{{ team.team_description }}</td>
         {% endfor %}
     </table>
-
+<br>
+</div>
 {% endblock %}
