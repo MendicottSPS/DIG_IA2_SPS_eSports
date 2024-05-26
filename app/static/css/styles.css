@@ -34,6 +34,7 @@ body {
     color: #fff; /* White text color */
     font-size: 28px; /* Large font size */
     font-family: 'Starjedi';
+    cursor: pointer;
 
 }
 
@@ -45,7 +46,7 @@ body {
 /* Container for content */
 .container {
     /* background-color: rgba(255, 255, 255, 0);*/
-    background-color: #4d2968; /* Dark purple background */
+    background-color: #462163; /* Dark purple background */
     border: 2px solid #fff;
     border-radius: 10px; /* Rounded edges */
     padding: 20px; /* Padding inside the container */
@@ -90,12 +91,12 @@ form input[type="password"],
 form select,
 form textarea {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 8px;
+    margin: 8px 0;
     border: 1px solid #ccc; /* Gray border */
     border-radius: 5px;
     box-sizing: border-box; /* Include padding and border in total width */
-    font-size: 25px;
+    font-size: 20px;
 }
 
 form input[type="submit"] {
@@ -136,4 +137,65 @@ th {
 td {
     background-color: #2b0a3d; /* Background color for table data cells */
     color: white; /* Text color for table data cells */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.button-link {
+    padding: 10px; /* Adjust padding as needed */
+    margin-top: 10px;
+    background-color: #612177; /* Dark purple background */
+    color: #fff; /* White text color */
+    border: 2px solid white; /* White border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.button-link:hover {
+    background-color: #fff; /* White background on hover */
+    color: #612177; /* Dark purple text color on hover */
+}
+
+.heart-box {
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.heart-box .fa-heart {
+    color: #612177;
+    font-size: 25px;
+}
+
+
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.user-details, .favourite-games {
+    flex: 1;
+    min-width: 300px;
+}
+
+.user-details {
+    padding-right: 20px;
+}
+
+/* Ensure the table takes full width within its container */
+.favourite-games table {
+    width: 100%;
 }

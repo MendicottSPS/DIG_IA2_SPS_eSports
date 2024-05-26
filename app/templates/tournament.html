@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{tournament.tournament_name}}</h1>
+{% if in_tournament %}
+    <div class="button-container">
+    <a href="{{url_for('join_tournament', tournament_id=tournament.tournament_id)}}" class="button-link">Leave Tournament</a>
+{% else %}
+    <a href="{{url_for('join_tournament', tournament_id=tournament.tournament_id)}}" class="button-link">Join Tournament</a>
+{% endif %}
+        </div>
+
+<p>{{tournament.tournament_description}}</p>
+<p>{{tournament.tournament_date}}</p>
+
+<h2>Participants</h2>
+<table>
+    <tr>
+        <th>Username</th>
+    </tr>
+    {% for participant in participant_list %}
+        <tr>
+            <td>{{participant.username}}</td>
+        </tr>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+

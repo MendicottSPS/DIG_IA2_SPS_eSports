@@ -30,8 +30,10 @@
     <span style="color: red;">[{{ error }}]</span>
     {% endfor %}
 
-    <label for="grade">Year Level Grade</label>
-    <input list = "grades" name="grade" id="grade" required>
+
+
+    <label for="grade">Year Level</label>
+    <input list = "grades" name="grade" id="grade">
     <datalist id="grades">
         <option value="7">
         <option value="8">
@@ -41,13 +43,31 @@
         <option value="12">
     </datalist>
 
+    <br>
+    <br>
+
     <label for="skill_level">Skill Level</label>
-    <input list = "skill_levels" name="skill_level" id="skill_level" required>
+    <input list = "skill_levels" name="skill_level" id="skill_level">
     <datalist id="skill_levels">
         <option value="Beginner">
         <option value="Intermediate">
         <option value="Advanced">
     </datalist>
+
+    <br>
+    <br>
+
+    <label for="admin_code">Admin Code</label>
+    <input type="text" name="admin_code" id="admin_code">
+
+    <input type="checkbox" name="terms" id="terms" required>
+    <label for="terms">Yes, I agree to the Terms and Conditions and Privacy Policies</label>
+
+    <br>
+
+    <input type="checkbox" name="offers" id="offers">
+    <label for="offers">Yes, I would like to receive offers and updates from SPS eSports</label>
+
 
     <input type="submit" value="Register">
 </form>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{team.team_name}}</h1>
+<p>{{team.team_description}}</p>
+
+<a href="{{url_for('create_practise', team_id=team.team_id)}}" class="button-link">Create Practise</a>
+
+<h2>Team Members</h2>
+{% for user in user_list %}
+    <p>{{user.username}}</p>
+{% endfor %}
+
+<h2>Upcoming Practises</h2>
+<table>
+    <tr>
+        <th>Practise Name</th>
+        <th>Date</th>
+    </tr>
+    {% for practise in practises %}
+        <tr>
+            <td>{{practise.practise_name}}</td>
+            <td>{{practise.practise_date}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

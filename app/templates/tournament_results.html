@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Tournament Search Results</h1>
+<p>Here are the results for your search:</p>
+
+<table>
+    <tr>
+        <th>Tournament Name</th>
+        <th>Date</th>
+        <th>Participants</th>
+    </tr>
+    {% for tournament in tournaments %}
+    <tr>
+        <td><a href="{{ url_for('tournament', tournament_id=tournament.tournament_id) }}">{{ tournament.tournament_name }}</a></td>
+        <td>{{ tournament.tournament_date }}</td>
+        <td>{{ tournament.participant_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    {% endblock %}

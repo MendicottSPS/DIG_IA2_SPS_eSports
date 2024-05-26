@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create Tournament</h1>
+
+<form action="{{url_for('create_tournament')}}" method="post">
+  {{form.hidden_tag()}}
+
+  {{form.tournament_name.label}}
+  {{form.tournament_name}}
+
+  {{form.tournament_description.label}}
+  {{form.tournament_description}}
+
+  {{form.tournament_date.label}}
+  {{form.tournament_date}}
+
+  {{form.submit}}
+
+</form>
+
+{% endblock %}

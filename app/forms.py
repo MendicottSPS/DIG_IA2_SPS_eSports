@@ -1,7 +1,7 @@
 #importing necessary libraries
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
-from wtforms.validators import DataRequired, EqualTo, ValidationError, Email
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, DateField
+from wtforms.validators import DataRequired, EqualTo, ValidationError, Email, Optional
 from app.models import User
 
 #creating the login form
@@ -18,12 +18,13 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')]) #used to check that the user enters the same password twice
-    grade = StringField('Grade', validators=[DataRequired()])
+    grade = StringField('Grade')
     skill_level = SelectField('Skill Level', choices=[
         ('Beginner', 'Beginner'),
         ('Intermediate', 'Intermediate'),
         ('Advanced', 'Advanced')
-    ]) #a set of options the user is able to pick from for their skill level - limits error and ensures consistency
+    ], validators=[Optional()]) #a set of options the user is able to pick from for their skill level - limits error and ensures consistency
+    admin_code = StringField('Admin Code') #this field is used to allow admin users to be created - this is a temporary solution and should be changed in the future
     submit = SubmitField('Register')
 
     #validation to ensure that the username and email are unique - if not, the user is prompted to enter a different username or email
@@ -65,4 +66,20 @@ class CreateTeamForm(FlaskForm):
 class SearchTeamForm(FlaskForm):
     team_name = StringField('Team Name', validators=[DataRequired()])
     submit = SubmitField('Search Team')
+
+class CreateTournamentForm(FlaskForm):
+    tournament_name = StringField('Tournament Name', validators=[DataRequired()])
+    tournament_description = StringField('Tournament Description', validators=[DataRequired()])
+    tournament_date = DateField('Tournament Date', validators=[DataRequired()])
+    submit = SubmitField('Create Tournament')
+
+class SearchTournamentForm(FlaskForm):
+    tournament_name = StringField('Tournament Name', validators=[DataRequired()])
+    submit = SubmitField('Search Tournament')
+
+class CreatePractiseForm(FlaskForm):
+    practise_name = StringField('Practise Name', validators=[DataRequired()])
+    practise_description = StringField('Practise Description', validators=[DataRequired()])
+    practise_date = DateField('Practise Date', validators=[DataRequired()])
+    submit = SubmitField('Create Practise')
 

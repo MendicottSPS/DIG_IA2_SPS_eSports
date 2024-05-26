@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Game Results</h1>
+    <h1>Game Search Results</h1>
     <p>Here are the results for your search:</p>
 
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Platform</th>
+            <th>Year Published</th>
+            <th>Game Publisher</th>
+        </tr>
         {% for game in games %}
-            <!---<p>{{game.game_title}}</p> --->
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Platform</th>
-        <th>Year Published</th>
-        <th>Game Publisher</th>
-    </tr>
-    {% for game in games %}
-    <tr>
-        <td>{{ game.game_title }}</td>
-        <td>{{ game.game_genre }}</td>
-        <td>{{ game.game_platform }}</td>
-        <td>{{ game.game_year }}</td>
-        <td>{{ game.game_publisher }}</td>
-    </tr>
-    {% endfor %}
-</table>
+        <tr>
+            <td><a href="{{ url_for('game', game_id=game.game_id) }}">{{ game.game_title }}</a></td>
+            <td>{{ game.game_genre }}</td>
+            <td>{{ game.game_platform }}</td>
+            <td>{{ game.game_year }}</td>
+            <td>{{ game.game_publisher }}</td>
+        </tr>
         {% endfor %}
+    </table>
 
 {% endblock %}

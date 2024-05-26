@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>{{ game.game_title }}</h1>
+
+    <!-- Favourite Button -->
+    {% if is_favourite %}
+        <a href="{{ url_for('favourite_game', game_id=game.game_id) }}" class="heart-box">
+            <i class="fa-solid fa-heart"></i> <!-- Icon for favourited -->
+        </a>
+    {% else %}
+        <a href="{{ url_for('favourite_game', game_id=game.game_id) }}" class="heart-box">
+            <i class="fa-regular fa-heart"></i> <!-- Icon for not favourited -->
+        </a>
+    {% endif %}
+
+    <br>
+    <br>
+    <!-- Original Table Layout -->
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Platform</th>
+            <th>Year Published</th>
+            <th>Game Publisher</th>
+        </tr>
+        <tr>
+            <td>{{ game.game_title }}</td>
+            <td>{{ game.game_genre }}</td>
+            <td>{{ game.game_platform }}</td>
+            <td>{{ game.game_year }}</td>
+            <td>{{ game.game_publisher }}</td>
+        </tr>
+    </table>
+
+    <br>
+</div>
+{% endblock %}
