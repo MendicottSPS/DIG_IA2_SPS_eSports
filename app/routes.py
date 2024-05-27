@@ -254,7 +254,6 @@ def tournament(tournament_id):
         user = User.query.filter_by(id=participant.user_id).first()
         participant_list.append(user)
 
-
     return render_template('tournament.html', title='Tournaments', tournament=tournament, in_tournament=in_tournament, participants=participants, participant_list=participant_list)
 
 @app.route('/join_tournament/<tournament_id>', methods=['GET', 'POST'])
